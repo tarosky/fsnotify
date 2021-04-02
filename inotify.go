@@ -333,5 +333,11 @@ func newEvent(name string, mask uint32) Event {
 	if mask&unix.IN_ATTRIB == unix.IN_ATTRIB {
 		e.Op |= Chmod
 	}
+	if mask&unix.IN_CLOSE_WRITE == unix.IN_CLOSE_WRITE {
+		e.Op |= CloseWrite
+	}
+	if mask&unix.IN_MOVED_TO == unix.IN_MOVED_TO {
+		e.Op |= MoveTo
+	}
 	return e
 }
